@@ -12,7 +12,7 @@ const AddJobForm = () => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const addJobs = {
-      employerEmail: form.get('employerEmail'),
+      buyerEmail: form.get('buyerEmail'),
       jobTitle: form.get('jobTitle'),
       deadline: form.get('deadline'),
       category: form.get('category'),
@@ -54,8 +54,8 @@ const AddJobForm = () => {
   };
 
   return (
-    <div className="max-w-full mx-auto bg-white p-8 rounded shadow-md mb-5 mt-4">
-      <h1 className="text-2xl font-bold mb-4">Update Job</h1>
+    <div className="max-w-full mx-auto dark:bg-gray-900 bg-white p-8 rounded shadow-md mb-5 mt-4">
+      <h1 className="text-2xl font-bold mb-4">Added Job</h1>
       <form onSubmit={handlesubmit} ref={formRef}>
         <div className="flex flex-wrap">
           <div className="w-1/2 pr-2 mb-4">
@@ -64,8 +64,8 @@ const AddJobForm = () => {
             </label>
             <input
               type="email"
-              id="employerEmail"
-              name="employerEmail"
+              id="buyerEmail"
+              name="buyerEmail"
               placeholder={user?.email}
               value={user?.email}
               readOnly

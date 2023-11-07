@@ -1,7 +1,6 @@
 import axios from "axios";
 import { Spinner } from "flowbite-react";
 import { useLoaderData, useNavigate, useNavigation, useParams } from "react-router-dom";
-import swal from "sweetalert";
 import Swal from "sweetalert2";
 
 const Update = () => {
@@ -14,7 +13,7 @@ const Update = () => {
     return <Spinner color="info" aria-label="Info spinner example" />;
   }
 
-  const { category, deadline, description, employerEmail, jobTitle, maxPrice, minPrice } = data;
+  const { category, deadline, description,  buyerEmail, jobTitle, maxPrice, minPrice } = data;
 
   const handleUpdate = async (e) => {
     e.preventDefault();
@@ -35,9 +34,13 @@ const Update = () => {
     );
     const data = await response.data;
     console.log(data);
-    if(data.modifyCount > 0 ){
-      swal("Good job!", "You Updated data!", "success");
-      goTo('/myPostedJobs')
+    if(data.modifiedCount > 0 ){
+      Swal.fire({
+        icon: 'success',
+        title: jobTitle,
+        text: 'Job Updated successfully!',
+      });
+      goTo('/myPostedJob')
     }
 
     // axios
@@ -60,8 +63,8 @@ const Update = () => {
               type="email"
               id="employerEmail"
               name="employerEmail"
-              placeholder={employerEmail}
-              defaultValue={employerEmail}
+              placeholder={buyerEmail}
+              defaultValue={buyerEmail}
               readOnly
               className="w-full p-2 border rounded border-gray-300 focus:outline-none focus:border-blue-500 bg-gray-100"
             />

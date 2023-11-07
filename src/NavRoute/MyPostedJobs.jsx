@@ -2,7 +2,7 @@ import axios from "axios";
 import { Button, Card } from "flowbite-react";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/Authprovider";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const MyPostedJobs = () => {
@@ -12,7 +12,7 @@ const MyPostedJobs = () => {
   const [error, setError] = useState(null);
 
   const fetchData = () => {
-    const apiUrl = `http://localhost:5050/addJobs`;
+    const apiUrl = `http://localhost:5050/addJobs?buyerEmail=${user.email}`;
 
     axios
       .get(apiUrl)
@@ -47,7 +47,7 @@ const MyPostedJobs = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 dark:bg-gray-900 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {data?.map((item, index) => (
         <div key={index} className="w-full">
           <Card className="bg-white shadow-lg rounded-lg p-4 m-4">

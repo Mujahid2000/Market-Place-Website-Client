@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { Card, Spinner } from "flowbite-react";
 import { AuthContext } from "../AuthProvider/Authprovider";
 import axios from "axios";
@@ -10,6 +10,7 @@ const JobDetails = () => {
   const [job, setJob] = useState(null);
   const { _id } = useParams();
   const data = useLoaderData();
+  const goTo = useNavigate();
 
   const handleBit = (e) => {
     e.preventDefault();
@@ -19,7 +20,8 @@ const JobDetails = () => {
       deadline: form.get('deadline'),
       buyerEmail: form.get('buyerEmail'),
       price: form.get('price'),
-     
+      
+    
     };
 
     
@@ -28,13 +30,14 @@ const JobDetails = () => {
       .then((res) => {
         console.log(res);
 
-       
+      
         if (res.status === 200) {
           Swal.fire({
             icon: 'success',
             title: 'Success',
-            text: 'Job added successfully!',
+            text: 'Bid added successfully!',
           });
+          goTo("/myBids")
 
         } else {
           Swal.fire({
@@ -46,7 +49,7 @@ const JobDetails = () => {
       })
       .catch((error) => {
         console.error('Error:', error);
-
+        
         Swal.fire({
           icon: 'error',
           title: 'Error',
@@ -77,10 +80,13 @@ const JobDetails = () => {
              <span className="font-bold"> Buyer Email:</span> {job.employerEmail}
             </p>
             <p className="font-normal text-gray-700 dark:text-gray-400">
+              <span className="font-bold">Your Email:</span> {user?.email}
+            </p>
+            <p className="font-normal text-gray-700 dark:text-gray-400">
              <span className="font-bold"> Budget:</span> {job.minPrice} - {job.maxPrice}
             </p>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              <span className="font-bold">Your Email:</span> {user?.email}
+             <span className="font-bold"> Budget:</span> {job.description}
             </p>
           </Card>
         ) : (
@@ -97,7 +103,7 @@ const JobDetails = () => {
               <input
                 type="email"
                 id="employerEmail"
-                name="buyerEmail"
+                name="employerEmail"
                 placeholder={user?.email}
                 value={user?.email}
                 readOnly
@@ -112,9 +118,9 @@ const JobDetails = () => {
               <input
                 type="text"
                 id="jobTitle"
-                name="employerEmail"
-                placeholder={job?.employerEmail}
-                value={job?.employerEmail}
+                name="buyerEmail"
+                placeholder={job?.buyerEmail}
+                value={job?.buyerEmail}
                 readOnly
                 className="w-full p-2 border rounded border-gray-300 focus:outline-none focus:border-blue-500 bg-gray-100"
                 required

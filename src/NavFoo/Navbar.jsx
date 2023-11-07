@@ -1,7 +1,7 @@
 "use client";
 import { Link } from "react-router-dom";
 
-import { DarkThemeToggle, Flowbite, Navbar } from "flowbite-react";
+import { Button, DarkThemeToggle, Flowbite, Navbar } from "flowbite-react";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/Authprovider";
 
@@ -12,7 +12,7 @@ const NavBar = () => {
     };
 
     return (
-        <div className="p-4 bg-white">
+        <div className="p-4 ">
         <Navbar fluid rounded>
             <Navbar.Brand href="">
             <img
@@ -63,7 +63,7 @@ const NavBar = () => {
                         : ""
                     }
                 >
-                    <button className="btn btn-info">Login</button>
+                    <Button color="purple" className="btn btn-info">Login</Button>
                 </Link>
                 </div>
             )}
