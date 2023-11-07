@@ -18,6 +18,8 @@ import Error from './ParentFile/Error';
 import AuthProvide from './AuthProvider/Authprovider';
 import JobDetails from './JobDetails.jsx/JobDetails';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import Update from './CardFile/Update';
+
 
 
 const router = createBrowserRouter([
@@ -38,7 +40,6 @@ const router = createBrowserRouter([
       {
         path: '/myPostedJob',
         element: <PrivateRoute><MyPostedJobs></MyPostedJobs></PrivateRoute>,
-        loader: () => fetch('http://localhost:5050/addJobs'),
       },
       {
         path: '/myBids',
@@ -60,6 +61,11 @@ const router = createBrowserRouter([
         path: '/detail/:_id',
         element: <PrivateRoute><JobDetails></JobDetails></PrivateRoute>,
         loader: () => fetch('http://localhost:5050/addJobs')
+      },
+      {
+        path: '/update/:_id',
+        element: <Update></Update>,
+        loader: ({params}) => fetch(`http://localhost:5050/addJobs/${params._id}`)
       }
     ]
   },

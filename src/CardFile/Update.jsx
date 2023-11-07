@@ -1,62 +1,56 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../AuthProvider/Authprovider";
-
 import axios from "axios";
+import { Spinner } from "flowbite-react";
+import { useLoaderData, useNavigate, useNavigation, useParams } from "react-router-dom";
+import swal from "sweetalert";
 import Swal from "sweetalert2";
 
-const AddJobForm = () => {
-  const { user } = useContext(AuthContext);
-  const formRef = React.createRef();
+const Update = () => {
+  const { _id } = useParams();
+  const navigation = useNavigation();
+  const goTo = useNavigate();
+  const data = useLoaderData();
 
-  const handlesubmit = (e) => {
+  if (navigation.loading === "loading") {
+    return <Spinner color="info" aria-label="Info spinner example" />;
+  }
+
+  const { category, deadline, description, employerEmail, jobTitle, maxPrice, minPrice } = data;
+
+  const handleUpdate = async (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
-    const addJobs = {
-      employerEmail: form.get('employerEmail'),
-      jobTitle: form.get('jobTitle'),
-      deadline: form.get('deadline'),
-      category: form.get('category'),
-      description: form.get('description'),
-      minPrice: form.get('minPrice'),
-      maxPrice: form.get('maxPrice'),
+    const updateJob = {
+    employerEmail: form.get("employerEmail"),
+    jobTitle: form.get("jobTitle"),
+    deadline: form.get("deadline"),
+    category: form.get("category"),
+    description: form.get("description"),
+    minPrice: form.get("minPrice"),
+    maxPrice: form.get("maxPrice"),
     };
-  
-    axios
-      .post('http://localhost:5050/addJobs', addJobs)
-      .then((res) => {
-        console.log(res);
-  
-        // Check if the job was added successfully
-        if (res.status === 200) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Success',
-            text: ' Job added successfully!',
-          });
-          formRef.current.reset();
-        } else {
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'Failed to add the job. Please try again.',
-          });
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-  
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'An error occurred. Please try again later.',
-        });
-      });
+
+    const response = await axios.put(
+      `http://localhost:5050/addJobs/${_id}`,
+      updateJob
+    );
+    const data = await response.data;
+    console.log(data);
+    if(data.modifyCount > 0 ){
+      swal("Good job!", "You Updated data!", "success");
+      goTo('/myPostedJobs')
+    }
+
+    // axios
+    //   .put(`http://localhost:5050/addJobs/${_id}`, updateJob)
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   });
   };
 
   return (
     <div className="max-w-full mx-auto bg-white p-8 rounded shadow-md mb-5 mt-4">
       <h1 className="text-2xl font-bold mb-4">Update Job</h1>
-      <form onSubmit={handlesubmit} ref={formRef}>
+      <form onSubmit={handleUpdate}>
         <div className="flex flex-wrap">
           <div className="w-1/2 pr-2 mb-4">
             <label className="text-gray-600" htmlFor="employerEmail">
@@ -66,8 +60,8 @@ const AddJobForm = () => {
               type="email"
               id="employerEmail"
               name="employerEmail"
-              placeholder={user?.email}
-              value={user?.email}
+              placeholder={employerEmail}
+              defaultValue={employerEmail}
               readOnly
               className="w-full p-2 border rounded border-gray-300 focus:outline-none focus:border-blue-500 bg-gray-100"
             />
@@ -81,6 +75,7 @@ const AddJobForm = () => {
               type="text"
               id="jobTitle"
               name="jobTitle"
+              defaultValue={jobTitle}
               className="w-full p-2 border rounded border-gray-300 focus:outline-none focus:border-blue-500 bg-gray-100"
               required
             />
@@ -96,6 +91,7 @@ const AddJobForm = () => {
               type="date"
               id="deadline"
               name="deadline"
+              defaultValue={deadline}
               className="w-full p-2 border rounded border-gray-300 focus:outline-none focus:border-blue-500 bg-gray-100"
               required
             />
@@ -108,6 +104,7 @@ const AddJobForm = () => {
             <select
               id="category"
               name="category"
+              defaultValue={category}
               className="w-full p-2 border rounded border-gray-300 focus:outline-none focus:border-blue-500 bg-gray-100"
               required
             >
@@ -126,6 +123,7 @@ const AddJobForm = () => {
           <textarea
             id="description"
             name="description"
+            defaultValue={description}
             className="w-full p-2 border rounded border-gray-300 focus:outline-none focus-border-blue-500 bg-gray-100"
             rows="4"
             required
@@ -141,6 +139,7 @@ const AddJobForm = () => {
               type="text"
               id="minPrice"
               name="minPrice"
+              defaultValue={minPrice}
               className="w-full p-2 border rounded border-gray-300 focus:outline-none focus-border-blue-500 bg-gray-100"
               required
             />
@@ -154,6 +153,7 @@ const AddJobForm = () => {
               type="text"
               id="maxPrice"
               name="maxPrice"
+              defaultValue={maxPrice}
               className="w-full p-2 border rounded border-gray-300 focus:outline-none focus-border-blue-500 bg-gray-100"
               required
             />
@@ -162,13 +162,13 @@ const AddJobForm = () => {
 
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-700 focus:outline-none"
+          className="w-full bg-blue-500 text-white p-2 rounded hover-bg-blue-700 focus:outline-none"
         >
-          Add Job
+          Update Job
         </button>
       </form>
     </div>
   );
 };
 
-export default AddJobForm;
+export default Update;
