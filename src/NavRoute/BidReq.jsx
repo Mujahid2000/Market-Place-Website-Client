@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/Authprovider";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 const BidReq = () => {
   const { user } = useContext(AuthContext);
@@ -30,6 +31,9 @@ const BidReq = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Bid Request</title>
+      </Helmet>
       <div className="w-full overflow-x-auto">
         <table className="min-w-full bg-white border shadow rounded-lg">
           <thead>

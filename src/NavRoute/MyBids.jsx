@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import "react-step-progress-bar/styles.css";
 import { ProgressBar, Step } from "react-step-progress-bar";
 import { AuthContext } from "../AuthProvider/Authprovider";
+import { Helmet } from "react-helmet";
 
 const MyBids = () => {
   const { user } = useContext(AuthContext);
@@ -32,6 +33,9 @@ const MyBids = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>My Bid Jobs</title>
+      </Helmet>
       <div>
       <div>
             <select

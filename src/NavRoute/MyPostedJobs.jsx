@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/Authprovider";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const MyPostedJobs = () => {
   const { user } = useContext(AuthContext);
@@ -47,7 +48,11 @@ const MyPostedJobs = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 dark:bg-gray-900 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div>
+      <Helmet>
+        <title>My Posted Jobs</title>
+      </Helmet>
+      <div className="grid grid-cols-1 dark:bg-gray-900 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {data?.map((item, index) => (
         <div key={index} className="w-full">
           <Card className="bg-[#E5E7EB] shadow-lg rounded-lg p-4 m-4">
@@ -69,6 +74,7 @@ const MyPostedJobs = () => {
           </Card>
         </div>
       ))}
+    </div>
     </div>
   );
 };

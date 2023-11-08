@@ -3,6 +3,7 @@ import { FaCamera } from "react-icons/fa";
 import { AuthContext } from "../AuthProvider/Authprovider";
 import {  useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Helmet } from "react-helmet";
 
 const Register = () => {
 
@@ -66,6 +67,11 @@ const Register = () => {
 
         return (
         <div>
+            <Helmet>
+                <title>
+                    Register
+                </title>
+            </Helmet>
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-indigo-600 to-indigo-900">
             <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
             <h2 className="text-3xl font-bold text-indigo-600 mb-4">Sign Up</h2>
