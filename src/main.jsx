@@ -1,24 +1,24 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
 
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Main from './ParentFile/Main';
-import Home from './ParentFile/Home';
+import AuthProvide from './AuthProvider/Authprovider';
+import Update from './CardFile/Update';
+import JobDetails from './JobDetails.jsx/JobDetails';
 import AddJob from './NavRoute/AddJob';
-import MyPostedJobs from './NavRoute/MyPostedJobs';
-import MyBids from './NavRoute/MyBids';
 import BidReq from './NavRoute/BidReq';
 import Login from './NavRoute/Login';
+import MyBids from './NavRoute/MyBids';
+import MyPostedJobs from './NavRoute/MyPostedJobs';
 import Register from './NavRoute/Register';
 import Error from './ParentFile/Error';
-import AuthProvide from './AuthProvider/Authprovider';
-import JobDetails from './JobDetails.jsx/JobDetails';
+import Home from './ParentFile/Home';
+import Main from './ParentFile/Main';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
-import Update from './CardFile/Update';
 
 
 
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5050/addJobs'),
+        loader: () => fetch('https://marketplace-website-server.vercel.app/addJobs'),
       },
       {
         path: '/addJob',
@@ -61,12 +61,15 @@ const router = createBrowserRouter([
       {
         path: '/detail/:_id',
         element: <PrivateRoute><JobDetails></JobDetails></PrivateRoute>,
-        loader: () => fetch('http://localhost:5050/addJobs')
+        loader: () => fetch('https://marketplace-website-server.vercel.app/addJobs')
       },
       {
         path: '/update/:_id',
         element: <PrivateRoute><Update></Update></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5050/addJobs/${params._id}`)
+        loader: ({ params }) => fetch(`https://marketplace-website-server.vercel.app/addJobs/${params._id}`, {
+          method: 'GET',
+           
+        })
       }
     ]
   },

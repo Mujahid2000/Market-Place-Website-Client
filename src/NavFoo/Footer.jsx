@@ -9,7 +9,8 @@ const FooTer = () => {
             <Footer container>
       <div className="w-full">
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
-          <div>
+          <div className='flex'>
+            <h2 className='text-2xl font-semibold'>Taskla</h2>
             <Footer.Brand
               href=""
               src="https://i.ibb.co/6nTm7CG/logo-m.png"

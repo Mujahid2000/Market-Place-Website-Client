@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react";
-import {  useLoaderData, useNavigate, useParams } from "react-router-dom";
-import {  Card, Spinner } from "flowbite-react";
-import { AuthContext } from "../AuthProvider/Authprovider";
 import axios from "axios";
+import { Card, Spinner } from "flowbite-react";
+import { useContext, useEffect, useState } from "react";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../AuthProvider/Authprovider";
 
 const JobDetails = () => {
   const { user } = useContext(AuthContext);
@@ -20,11 +20,12 @@ const JobDetails = () => {
       deadline: form.get('deadline'),
       buyerEmail: form.get('buyerEmail'),
       price: form.get('price'),
+      jobId: _id,
+      status: 'pending',
     };
-
-    if (user?.email === job?.employerEmail) {
+       if (user?.email !== job?.buyerEmail) {
       axios
-        .post('http://localhost:5050/bitJobs', newJobApplication)
+        .post('https://marketplace-website-server.vercel.app/bitJobs', newJobApplication)
         .then((res) => {
           console.log(res);
 

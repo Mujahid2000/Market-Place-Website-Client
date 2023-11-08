@@ -9,7 +9,7 @@ const CardFile = ({cart}) => {
   const { user } = useContext(AuthContext);
   const maxDisplayLength = 80;
   const [isExpanded, setIsExpanded] = useState(false);
-    const {category, minPrice,maxPrice, buyerEmail, jobTitle, deadline, description, _id, } = cart || {};
+    const {category, minPrice,maxPrice, jobTitle, deadline, description, _id, } = cart || {};
     console.log(cart);
     const toggleReadMore = () => {
       setIsExpanded(!isExpanded);

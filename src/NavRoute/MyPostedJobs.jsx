@@ -13,7 +13,7 @@ const MyPostedJobs = () => {
   const [error, setError] = useState(null);
 
   const fetchData = () => {
-    const apiUrl = `http://localhost:5050/addJobs?buyerEmail=${user.email}`;
+    const apiUrl = `https://marketplace-website-server.vercel.app/addJobs?buyerEmail=${user.email}`;
 
     axios
       .get(apiUrl)
@@ -34,7 +34,7 @@ const MyPostedJobs = () => {
 
   const handleDeleteButton = (_id, jobTitle) => {
     axios
-      .delete(`http://localhost:5050/addJobs/${_id}`)
+      .delete(`https://marketplace-website-server.vercel.app/addJobs/${_id}`)
       .then((res) => {
         if (res?.data?.deletedCount > 0) {
           Swal.fire({

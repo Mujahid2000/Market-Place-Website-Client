@@ -1,11 +1,10 @@
-import React, { useContext, useEffect } from 'react';
 import axios from 'axios';
-import Swal from 'sweetalert2';
-import { FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../AuthProvider/Authprovider';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import { FaGoogle } from 'react-icons/fa';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { AuthContext } from '../AuthProvider/Authprovider';
 
 const Login = () => {
     const { login, googleSignIn, user } = useContext(AuthContext);
@@ -16,7 +15,7 @@ const Login = () => {
         googleSignIn().then(result => {
             const email = result.email; // Assuming `result` contains the email
             // Running code
-            axios.post("http://localhost:5050/jwt", 
+            axios.post("https://marketplace-website-server.vercel.app/jwt", 
                 { email },
                 { withCredentials: true }
             )
@@ -53,7 +52,7 @@ const Login = () => {
                     'success'
                 );
                 // Running code
-                axios.post("http://localhost:5050/jwt", 
+                axios.post("https://marketplace-website-server.vercel.app/jwt", 
                     { email },
                     { withCredentials: true }
                 )

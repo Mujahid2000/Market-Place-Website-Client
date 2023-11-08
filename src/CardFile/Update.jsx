@@ -5,10 +5,11 @@ import Swal from "sweetalert2";
 
 const Update = () => {
   const { _id } = useParams();
+ 
   const navigation = useNavigation();
   const goTo = useNavigate();
   const data = useLoaderData();
-
+  console.log(data)
   if (navigation.loading === "loading") {
     return <Spinner color="info" aria-label="Info spinner example" />;
   }
@@ -29,7 +30,7 @@ const Update = () => {
     };
 
     const response = await axios.put(
-      `http://localhost:5050/addJobs/${_id}`,
+      `https://marketplace-website-server.vercel.app/addJobs/${_id}`,
       updateJob
     );
     const data = await response.data;
@@ -44,7 +45,7 @@ const Update = () => {
     }
 
     // axios
-    //   .put(`http://localhost:5050/addJobs/${_id}`, updateJob)
+    //   .put(`https://marketplace-website-server.vercel.app/addJobs/${_id}`, updateJob)
     //   .then((res) => {
     //     console.log(res.data);
     //   });

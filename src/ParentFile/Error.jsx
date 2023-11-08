@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const Error = () => {
@@ -14,6 +15,9 @@ const Error = () => {
     };
   return (
     <div className="min-h-screen flex items-center justify-center">
+      <Helmet>
+        <title> This is error Page</title>
+      </Helmet>
      <Link to={'/'}>
      <button
         className={`${

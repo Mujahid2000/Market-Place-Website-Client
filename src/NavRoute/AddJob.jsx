@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { AuthContext } from "../AuthProvider/Authprovider";
 
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-
 const AddJobForm = () => {
   const { user } = useContext(AuthContext);
   const formRef = React.createRef();
-
+  const navigate = useNavigate()
   const handlesubmit = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
@@ -20,12 +20,12 @@ const AddJobForm = () => {
       minPrice: form.get('minPrice'),
       maxPrice: form.get('maxPrice'),
     };
-  
+
     axios
-      .post('http://localhost:5050/addJobs', addJobs)
+      .post('https://marketplace-website-server.vercel.app/addJobs', addJobs)
       .then((res) => {
         console.log(res);
-  
+
         // Check if the job was added successfully
         if (res.status === 200) {
           Swal.fire({
@@ -34,6 +34,7 @@ const AddJobForm = () => {
             text: ' Job added successfully!',
           });
           formRef.current.reset();
+          return navigate('/myPostedJob')
         } else {
           Swal.fire({
             icon: 'error',
@@ -44,7 +45,7 @@ const AddJobForm = () => {
       })
       .catch((error) => {
         console.error('Error:', error);
-  
+
         Swal.fire({
           icon: 'error',
           title: 'Error',
