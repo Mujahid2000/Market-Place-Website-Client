@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import { useLoaderData, useNavigate, useParams } from "react-router-dom";
-import { Card, Spinner } from "flowbite-react";
+import {  useLoaderData, useNavigate, useParams } from "react-router-dom";
+import {  Card, Spinner } from "flowbite-react";
 import { AuthContext } from "../AuthProvider/Authprovider";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -20,44 +20,48 @@ const JobDetails = () => {
       deadline: form.get('deadline'),
       buyerEmail: form.get('buyerEmail'),
       price: form.get('price'),
-      
-    
     };
 
-    
-    axios
-      .post('http://localhost:5050/bitJobs', newJobApplication) 
-      .then((res) => {
-        console.log(res);
+    if (user?.email === job?.employerEmail) {
+      axios
+        .post('http://localhost:5050/bitJobs', newJobApplication)
+        .then((res) => {
+          console.log(res);
 
-      
-        if (res.status === 200) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Success',
-            text: 'Bid added successfully!',
-          });
-          goTo("/myBids")
+          if (res.status === 200) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Success',
+              text: 'Bid added successfully!',
+            });
 
-        } else {
+            goTo('/myBids');
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'Failed to add the job. Please try again.',
+            });
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+
           Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: 'Failed to add the job. Please try again.',
+            text: 'An error occurred. Please try again later.',
           });
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'An error occurred. Please try again later.',
         });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: "You are not the employer, so you can't bid on this job.",
       });
+    }
 
-    console.log("Job bit application data:", newJobApplication); 
+    console.log('Job bit application data:', newJobApplication);
   };
 
   useEffect(() => {
@@ -77,7 +81,7 @@ const JobDetails = () => {
              <span className="font-bold"> Deadline:</span> {job.deadline}
             </p>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-             <span className="font-bold"> Buyer Email:</span> {job.employerEmail}
+             <span className="font-bold"> Buyer Email:</span> {job.buyerEmail}
             </p>
             <p className="font-normal text-gray-700 dark:text-gray-400">
               <span className="font-bold">Your Email:</span> {user?.email}
@@ -154,13 +158,12 @@ const JobDetails = () => {
               />
             </div>
           </div>
-
-          <button
-            type="submit"
-            className="w-full bg-blue-500 text-white p-2 rounded hover-bg-blue-700 focus:outline-none"
-          >
-            Add Job
+          
+          <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded hover-bg-blue-700 focus:outline-none">
+          Bid Job
           </button>
+        
+          
         </form>
       </div>
     </div>

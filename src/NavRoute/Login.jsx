@@ -1,9 +1,10 @@
+import React, { useContext, useEffect } from 'react';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { useContext, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
 import { AuthContext } from '../AuthProvider/Authprovider';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const { login, googleSignIn, user } = useContext(AuthContext);
@@ -12,13 +13,27 @@ const Login = () => {
 
     const handleGoogle = () => {
         googleSignIn().then(result => {
-            navigate(location.state ? location.state : '/');
+            const email = result.email; // Assuming `result` contains the email
+            // Running code
+            axios.post("http://localhost:5050/jwt", 
+                { email },
+                { withCredentials: true }
+            )
+            .then((res) => {
+                console.log(res.data);
+                if (res.data.success) {
+                    navigate(location.state || '/');
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
         });
     }
 
     useEffect(() => {
         if (user) {
-            navigate(location.state ? location.state : '/');
+            navigate(location.state || '/');
         }
     }, [user]);
 
@@ -36,9 +51,20 @@ const Login = () => {
                     'You have successfully logged in.',
                     'success'
                 );
-
-
-                navigate(location?.state ? location.state : '/');
+                // Running code
+                axios.post("http://localhost:5050/jwt", 
+                    { email },
+                    { withCredentials: true }
+                )
+                .then((res) => {
+                    console.log(res.data);
+                    if (res.data.success) {
+                        navigate(location.state || '/');
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
             })
             .catch(err => {
                 console.error(err);
@@ -85,14 +111,13 @@ const Login = () => {
                     >
                         Log In
                     </button>
-                   
                 </form>
                 <div className="mt-4">
-                        <button onClick={handleGoogle} className="w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600">
-                            <FaGoogle className="inline-block mr-2" />
-                            Log in with Google
-                        </button>
-                    </div>
+                    <button onClick={handleGoogle} className="w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600">
+                        <FaGoogle className="inline-block mr-2" />
+                        Log in with Google
+                    </button>
+                </div>
                 <Link to='/register'>
                     <p className="mt-4 text-sm text-gray-600 text-center">
                         <span className="text-indigo-600">Don't have an account? Sign up</span>

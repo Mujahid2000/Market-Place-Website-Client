@@ -50,7 +50,7 @@ const MyPostedJobs = () => {
     <div className="grid grid-cols-1 dark:bg-gray-900 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {data?.map((item, index) => (
         <div key={index} className="w-full">
-          <Card className="bg-white shadow-lg rounded-lg p-4 m-4">
+          <Card className="bg-[#E5E7EB] shadow-lg rounded-lg p-4 m-4">
             <h2 className="text-xl font-semibold">{item.jobTitle}</h2>
             <p className="text-sm text-gray-500">Category: {item.category}</p>
             <p><strong>Email:</strong> {item.employerEmail}</p>

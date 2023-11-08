@@ -39,20 +39,14 @@ const CardFile = ({cart}) => {
       <p className="text-xl font-bold">
         Budget: {minPrice} - {maxPrice}
       </p>
-      {
-        user?.email === buyerEmail? (
-          <Button>Bid Now
-            <HiOutlineArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-        )
-        :
-        (<Link to={`detail/${_id}`}>
+      
+        <Link to={`detail/${_id}`}>
       <Button className=" w-full">
           Bid Now
         <HiOutlineArrowRight className="ml-2 h-5 w-5" />
       </Button>
-      </Link>)
-      }
+      </Link>
+      
     </Card>
         </div>
     );
