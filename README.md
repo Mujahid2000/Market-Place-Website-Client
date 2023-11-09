@@ -15,6 +15,6 @@ five bullet points-
 2. I have created a route in the navbar called AddJob. With which a user can post jobs.
 3. I have created it in the root navbar called My Posted Jobs so that a user can see his own posted jobs.
 4. I have created another route called My Bids where a user can view the bid posts that he has bid on from the job of his choice from the home page.
-
+5. When you enter the website, there is a route called Bid Request where a user can see who is bidding on the posted jobs and accept and reject as needed.
 
 
