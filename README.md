@@ -10,4 +10,5 @@ Currently, two official plugins are available:
 live link:  https://taskla-market-place.web.app/
 
 
+1. I have a home page in this project where I show some job posts in the form of category tabs.
 
