@@ -25,11 +25,7 @@ const NavBar = () => {
             </span>
             </Navbar.Brand>
             <div className="flex gap-2 md:order-2">
-            <Flowbite>
-                ...
-                <DarkThemeToggle />
-                ...
-            </Flowbite>
+            
             {
                 user?(
                     <div className="flex md:order-2">
