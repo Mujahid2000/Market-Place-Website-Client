@@ -79,7 +79,7 @@ const BidReq = () => {
                 return (
                   <tr key={index}>
                     <td className="border px-4 py-2">{item.employerEmail}</td>
-                    <td className="border px-4 py-2">Developer</td>
+                    <td className="border px-4 py-2">{item.jobTitle}</td>
                     <td className="border px-4 py-2">{item.deadline}</td>
                     <td className="border px-4 py-2">{item.price}</td>
                     <td className="border px-4 py-2">{item.status} </td>
