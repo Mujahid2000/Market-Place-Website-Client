@@ -91,7 +91,7 @@ const JobDetails = () => {
              <span className="font-bold"> Budget:</span> {job.minPrice} - {job.maxPrice}
             </p>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-             <span className="font-bold"> Budget:</span> {job.description}
+             <span className="font-bold"> Description:</span> {job.description}
             </p>
           </Card>
         ) : (
