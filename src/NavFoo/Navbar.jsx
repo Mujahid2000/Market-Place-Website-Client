@@ -68,44 +68,7 @@ const NavBar = () => {
                 </div>
                 )
             }
-            {/* {user ? (
-                <div className="flex gap-3">
-                <div className="relative">
-                    <img
-                    src={user?.photoURL}
-                    className="rounded-full w-12"
-                    alt=""
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        e.preventDefault();
-                        e.target.nextSibling.classList.toggle("hidden");
-                    }}
-                    />
-                    <p className="absolute hidden top-12 left:[0%] lg:right-[60px] w-[150px] lg:w-[220px] bg-blue-500 px-2 py-1 rounded text-center">
-                    {user?.displayName}
-                    </p>
-                </div>
-                <button onClick={handleLogOut} className="btn btn-info bg-purple-600  text-white px-2 rounded-lg">
-                    LogOut
-                </button>
-                </div>
-            ) : (
-                <div>
-                <Link
-                    to="/login"
-                    className={({ isActive, isPending }) =>
-                    isPending
-                        ? "pending"
-                        : isActive
-                        ? "text-[#333333] underline font-medium text-lg"
-                        : ""
-                    }
-                >
-                    <button className="btn  btn-info bg-purple-600 text-white px-3 py-2 rounded-lg">Login</button>
-                </Link>
-                </div>
-            )} */}
-
+        
             <Navbar.Toggle />
             </div>
             <Navbar.Collapse>
