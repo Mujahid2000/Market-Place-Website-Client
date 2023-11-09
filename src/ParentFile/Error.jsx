@@ -14,7 +14,7 @@ const Error = () => {
       }, 300);
     };
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center justify-center">
       <Helmet>
         <title> This is error Page</title>
       </Helmet>
