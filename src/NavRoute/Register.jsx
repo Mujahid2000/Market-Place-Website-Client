@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet";
 
 const Register = () => {
 
-    const { createUser, user, handleUpdateProfile } = useContext(AuthContext);
+    const { createUser, user, handleUpdateProfile, setLoading } = useContext(AuthContext);
     console.log(user);
     const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("");
@@ -51,9 +51,12 @@ const Register = () => {
                         'You have successfully registered.',
                         'success'
                     );
+                setLoading(false)
                 })
+                
             })
             .catch(error => {
+                setLoading(false)
                 console.error(error.code);
                 if (error.code === 'auth/email-already-in-use') {
                     Swal.fire({

@@ -59,6 +59,7 @@ const AuthProvide = ({children}) => {
         logout,
         login,
         loading,
+        setLoading,
         googleSignIn,
         handleUpdateProfile
         
