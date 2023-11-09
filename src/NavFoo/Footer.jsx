@@ -8,6 +8,7 @@ const FooTer = () => {
         <div className='mt-6 dark:bg-gray-900'>
             <Footer container>
       <div className="w-full">
+            
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
           <div className='flex'>
             <p>Taskla</p>
@@ -19,6 +20,7 @@ const FooTer = () => {
             />
           </div>
           <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
+          
             <div>
               <Footer.Title title="about" />
               <Footer.LinkGroup col>
@@ -42,6 +44,9 @@ const FooTer = () => {
             </div>
           </div>
         </div>
+        <div>
+            <p className='text-[#6B7280]'>Contact Us: Uttara, Dhaka, Bangladesh</p>
+            </div>
         <Footer.Divider />
         <div className="w-full sm:flex sm:items-center sm:justify-between">
           <Footer.Copyright href="#" by="Taskla" year={2023} />
