@@ -1,7 +1,7 @@
 "use client";
 import { Link } from "react-router-dom";
 
-import { DarkThemeToggle, Flowbite, Navbar } from "flowbite-react";
+import { Avatar, DarkThemeToggle, Dropdown, Flowbite, Navbar } from "flowbite-react";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/Authprovider";
 
@@ -30,7 +30,45 @@ const NavBar = () => {
                 <DarkThemeToggle />
                 ...
             </Flowbite>
-            {user ? (
+            {
+                user?(
+                    <div className="flex md:order-2">
+        <Dropdown
+          arrowIcon={false}
+          inline
+          label={
+            <Avatar alt="User settings" img={user?.photoURL} rounded />
+          }
+        >
+          <Dropdown.Header>
+            <span className="block text-sm">{user?.displayName}</span>
+            <span className="block truncate text-sm font-medium">{user.email}</span>
+          </Dropdown.Header>
+          <Dropdown.Divider />
+          <Dropdown.Item onClick={handleLogOut}>LogOut</Dropdown.Item>
+        </Dropdown>
+        <Navbar.Toggle />
+      </div>
+                )
+                :
+                (
+                    <div>
+                <Link
+                    to="/login"
+                    className={({ isActive, isPending }) =>
+                    isPending
+                        ? "pending"
+                        : isActive
+                        ? "text-[#333333] underline font-medium text-lg"
+                        : ""
+                    }
+                >
+                    <button className="btn  btn-info bg-purple-600 text-white px-3 py-2 rounded-lg">Login</button>
+                </Link>
+                </div>
+                )
+            }
+            {/* {user ? (
                 <div className="flex gap-3">
                 <div className="relative">
                     <img
@@ -66,7 +104,7 @@ const NavBar = () => {
                     <button className="btn  btn-info bg-purple-600 text-white px-3 py-2 rounded-lg">Login</button>
                 </Link>
                 </div>
-            )}
+            )} */}
 
             <Navbar.Toggle />
             </div>
