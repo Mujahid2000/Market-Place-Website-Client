@@ -13,7 +13,7 @@ const Login = () => {
 
     const handleGoogle = () => {
         googleSignIn().then(result => {
-            const email = result.email; // Assuming `result` contains the email
+            const email = result.email; 
             // Running code
             axios.post("https://marketplace-website-server.vercel.app/jwt", 
                 { email },
