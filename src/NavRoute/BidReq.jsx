@@ -33,6 +33,7 @@ const BidReq = () => {
 
   async function updateStatus(id, status) {
     const apiUrl = `https://marketplace-website-server.vercel.app/bitJobs/${id}`;
+    console.log(apiUrl);
     const res = await axios.patch(apiUrl, {
       status: status,
     });
