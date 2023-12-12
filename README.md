@@ -20,4 +20,5 @@ live link:  https://taskla-market-place.web.app/
 
 Taskla: Client Side code: https://github.com/Mujahid2000/Market-Place-Website-Client | Server Side Code: https://github.com/Mujahid2000/Market-Place-Website-Server
 
+
 overview: Embark on a job-seeking journey with a homepage featuring categorized job posts. Seamlessly post and manage jobs through dedicated routes like 'AddJob' and 'My Posted Jobs.' Explore bids on your job posts in 'My Bids,' and facilitate bid requests with the 'Bid Request' route. A comprehensive platform for job posting, bidding, and efficient management, tailored for a seamless user experience.
