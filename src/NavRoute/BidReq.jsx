@@ -58,7 +58,7 @@ const BidReq = () => {
 
 
   return (
-    <div className="px-6 min-h-screen">
+    <div className="px-6 min-h-screen dark:bg-gray-900">
       <Helmet>
         <title>Bid Request</title>
       </Helmet>

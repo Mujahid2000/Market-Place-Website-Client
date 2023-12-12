@@ -69,7 +69,7 @@ const Register = () => {
     };
 
         return (
-        <div>
+        <div className="dark:bg-gray-900">
             <Helmet>
                 <title>
                     Register

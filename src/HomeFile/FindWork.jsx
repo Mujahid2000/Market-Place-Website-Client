@@ -3,7 +3,7 @@ import { Button, TextInput } from 'flowbite-react';
 
 const FindWork = () => {
     return (
-        <div>
+        <div className='dark:bg-gray-900'>
             <div className='mt-10 grid md:grid-cols-2 gap-6 md:flex justify-evenly bg-gradient-to-r from-indigo-500 items-center'>
                 <div className="max-w-md mx-auto md:ml-0">
                     <h4 className='text-center text-white text-xl mb-3'>Search Here</h4>

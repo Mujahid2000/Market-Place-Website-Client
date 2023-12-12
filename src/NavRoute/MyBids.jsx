@@ -56,26 +56,12 @@ const MyBids = () => {
   }
 
   return (
-    <div className="px-6 min-h-screen pt-10">
+    <div className="px-6 min-h-screen pt-10 dark:bg-gray-900">
       <Helmet>
         <title>My Bid Jobs</title>
 
       </Helmet>
-      {/* <div>
-        <div>
-          <select
-            id="category"
-            name="category"
-            className=" border rounded border-gray-300 focus:outline-none focus:border-blue-500 bg-gray-100"
-            required
-          >
-            <option value="Select a category">Select a category</option>
-            <option value="Web Development">Web Development</option>
-            <option value="Digital Marketing">Digital Marketing</option>
-            <option value="Graphics Design">Graphics Design</option>
-          </select>
-        </div>
-      </div> */}
+      
       <div className="overflow-auto">
         <table className="min-w-full bg-white border shadow rounded-lg">
           <thead>

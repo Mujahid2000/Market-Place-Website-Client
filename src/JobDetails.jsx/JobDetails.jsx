@@ -71,7 +71,7 @@ const JobDetails = () => {
   }, [_id, data]);
 
   return (
-    <div className="mb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 justify-evenly min-h-[540px] items-center mt-6">
+    <div className="mb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 justify-evenly min-h-[540px] items-center mt-6 dark:bg-gray-900">
       <div className="">
         {job ? (
           <Card className="max-w-lg">

@@ -48,7 +48,7 @@ const MyPostedJobs = () => {
   };
 
   return (
-    <div>
+    <div className="dark:bg-gray-900">
       <Helmet>
         <title>My Posted Jobs</title>
       </Helmet>

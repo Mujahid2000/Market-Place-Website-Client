@@ -1,9 +1,10 @@
 "use client";
 import { Link } from "react-router-dom";
 
-import { Avatar, DarkThemeToggle, Dropdown, Flowbite, Navbar } from "flowbite-react";
+import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/Authprovider";
+import MyPage from "./DardTheme";
 
 const NavBar = () => {
     const { user, logout } = useContext(AuthContext);
@@ -20,12 +21,16 @@ const NavBar = () => {
                 className="mr-3 h-6 sm:h-9"
                 alt="Taskla"
             />
-            <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+            <span className="self-center  whitespace-nowrap text-xl font-semibold dark:text-white">
                 Taskla
             </span>
-            </Navbar.Brand>
-            <div className="flex gap-2 md:order-2">
             
+            
+            </Navbar.Brand>
+                
+
+            <div className="flex gap-2 md:order-2">
+             
             {
                 user?(
                     <div className="flex md:order-2">
@@ -64,7 +69,7 @@ const NavBar = () => {
                 </div>
                 )
             }
-        
+            <MyPage></MyPage>
             <Navbar.Toggle />
             </div>
             <Navbar.Collapse>
