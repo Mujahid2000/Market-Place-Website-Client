@@ -13,7 +13,7 @@ const CategoryTab = () => {
   const filter3 = data?.filter((p) => p.category.includes("Graphics"));
   console.log(filter1, filter2, filter3);
     return (
-        <div className='max-w-7xl mx-auto mt-6'>
+        <div className='max-w-[1800px] mx-auto mt-6 px-2'>
         <Tabs>
     <TabList className='text-center '>
       <Tab>Web development</Tab>
@@ -21,21 +21,21 @@ const CategoryTab = () => {
       <Tab>Graphics Design</Tab>
     </TabList>
     <TabPanel>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  gap-5 mx-auto p-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  gap-5 max-w-7xl mx-auto p-5">
             {filter1.map((cart) => (
               <CardFile cart={cart} key={cart.id} />
             ))}
           </div>
     </TabPanel>
     <TabPanel>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 mx-auto p-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 max-w-7xl mx-auto p-5">
             {filter2.map((cart) => (
               <CardFile cart={cart} key={cart.id} />
             ))}
           </div>
     </TabPanel>
     <TabPanel>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 mx-auto p-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 max-w-7xl mx-auto p-5">
             {filter3.map((cart) => (
               <CardFile cart={cart} key={cart.id} />
             ))}

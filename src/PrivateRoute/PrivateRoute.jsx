@@ -12,7 +12,7 @@ const PrivateRoute = ({ children }) => {
     console.log(user)
 
     if (loading)
-        return<Spinner color="purple" aria-label="Purple spinner example" />
+        return <Spinner color="purple" aria-label="Purple spinner example" />
 
 
     if (user) {

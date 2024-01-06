@@ -17,7 +17,7 @@ const CardFile = ({cart}) => {
 
     const displayText = isExpanded ? description : `${description.slice(0, maxDisplayLength)}...`;
     return (
-        <div>
+        <div >
             <Card className="max-w-sm ">
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         {jobTitle}
@@ -28,20 +28,20 @@ const CardFile = ({cart}) => {
       <p className="font-normal text-gray-700 dark:text-gray-400">
         Deadline: {deadline}
       </p>
-      <p className="description">
+      <p className="description text-justify">
         {displayText}
       </p>
       {description.length > maxDisplayLength && (
-        <button className="underline text-blue-600" onClick={toggleReadMore}>
+        <button className="underline text-left text-blue-600" onClick={toggleReadMore}>
           {isExpanded ? 'Show less' : 'Read more'}
         </button>
       )}
-      <p className="text-xl font-bold">
-        Budget: {minPrice} - {maxPrice}
+      <p className="text-xl text-justify font-bold">
+        Budget: ${minPrice} - ${maxPrice}
       </p>
       
         <Link to={`detail/${_id}`}>
-      <Button className=" w-full">
+      <Button className=" w-full" color="purple">
           Bid Now
         <HiOutlineArrowRight className="ml-2 h-5 w-5" />
       </Button>

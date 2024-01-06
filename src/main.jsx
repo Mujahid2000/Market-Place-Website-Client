@@ -68,7 +68,6 @@ const router = createBrowserRouter([
         element: <PrivateRoute><Update></Update></PrivateRoute>,
         loader: ({ params }) => fetch(`https://marketplace-website-server.vercel.app/addJobs/${params._id}`, {
           method: 'GET',
-           
         })
       }
     ]
@@ -76,7 +75,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <div className='max-w-[1800px] mx-auto'>
+  <div className=''>
     <AuthProvide>
     <React.StrictMode>
      <RouterProvider router={router} />

@@ -13,15 +13,15 @@ const NavBar = () => {
     };
 
     return (
-        <div className="p-4 ">
-        <Navbar fluid rounded>
+        <div className="p-2 w-full bg-slate-100">
+        <Navbar fluid rounded className="bg-slate-100">
             <Navbar.Brand href="">
             <img
-                src="https://i.ibb.co/6nTm7CG/logo-m.png"
+                src="https://i.ibb.co/Zm4YWYZ/logo-m.png"
                 className="mr-3 h-6 sm:h-9"
                 alt="Taskla"
             />
-            <span className="self-center  whitespace-nowrap text-xl font-semibold dark:text-white">
+            <span className="self-center whitespace-nowrap text-2xl text-black font-bold dark:text-white">
                 Taskla
             </span>
             
@@ -30,26 +30,26 @@ const NavBar = () => {
                 
 
             <div className="flex gap-2 md:order-2">
-             
+            
             {
                 user?(
                     <div className="flex md:order-2">
         <Dropdown
-          arrowIcon={false}
-          inline
-          label={
-            <Avatar alt="User settings" img={user?.photoURL} rounded />
-          }
+        arrowIcon={false}
+        inline
+        label={
+        <Avatar alt="User settings" img={user?.photoURL} rounded />
+        }
         >
-          <Dropdown.Header>
+        <Dropdown.Header>
             <span className="block text-sm">{user?.displayName}</span>
             <span className="block truncate text-sm font-medium">{user.email}</span>
-          </Dropdown.Header>
-          <Dropdown.Divider />
-          <Dropdown.Item onClick={handleLogOut}>LogOut</Dropdown.Item>
+        </Dropdown.Header>
+        <Dropdown.Divider />
+        <Dropdown.Item onClick={handleLogOut}>LogOut</Dropdown.Item>
         </Dropdown>
     
-      </div>
+        </div>
                 )
                 :
                 (
@@ -73,11 +73,11 @@ const NavBar = () => {
             <Navbar.Toggle />
             </div>
             <Navbar.Collapse>
-            <Navbar.Link href="/"> Home</Navbar.Link>
-            <Navbar.Link href="/addJob">Add job</Navbar.Link>
-            <Navbar.Link href="/myPostedJob">My posted jobs</Navbar.Link>
-            <Navbar.Link href="/myBids">My Bids</Navbar.Link>
-            <Navbar.Link href="/bidReq">Bid Requests</Navbar.Link>
+            <Link  to="/"> Home</Link>
+            <Link  to="/addJob">Add job</Link>
+            <Link  to="/myPostedJob">My posted jobs</Link>
+            <Link  to="/myBids">My Bids</Link>
+            <Link  to="/bidReq">Bid Requests</Link>
             </Navbar.Collapse>
         </Navbar>
         </div>

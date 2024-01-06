@@ -11,7 +11,7 @@ import jsPDF from "jspdf";
 
 const MyBids = () => {
   const { user } = useContext(AuthContext);
-  const tableRef = useRef(null); // Initialize with null
+  const tableRef = useRef(null); 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

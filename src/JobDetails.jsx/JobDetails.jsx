@@ -71,7 +71,8 @@ const JobDetails = () => {
   }, [_id, data]);
 
   return (
-    <div className="mb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 justify-evenly min-h-[540px] items-center mt-6 dark:bg-gray-900">
+    <div className="max-w-7xl mx-auto px-5">
+      <div className="mb-6  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 justify-evenly min-h-[540px] items-center mt-6 dark:bg-gray-900">
       <div className="">
         {job ? (
           <Card className="max-w-lg">
@@ -98,75 +99,76 @@ const JobDetails = () => {
           <Spinner color="purple" aria-label="Purple spinner example" />
         )}
       </div>
-      <div className="mt-6 border px-6 py-9 max-w-3xl">
-        <form onSubmit={handleBit}>
-          <div className="flex flex-wrap">
-            <div className="w-1/2 pr-2 mb-4">
-              <label className="text-gray-600" htmlFor="employerEmail">
-                Email of the Employer:
-              </label>
-              <input
-                type="email"
-                id="employerEmail"
-                name="employerEmail"
-                placeholder={user?.email}
-                value={user?.email}
-                readOnly
-                className="w-full p-2 border rounded border-gray-300 focus:outline-none focus:border-blue-500 bg-gray-100"
-              />
-            </div>
-
-            <div className="w-1/2 pl-2 mb-4">
-              <label className="text-gray-600" htmlFor="jobTitle">
-              Email of the Buyer
-              </label>
-              <input
-                type="text"
-                id="jobTitle"
-                name="buyerEmail"
-                placeholder={job?.buyerEmail}
-                value={job?.buyerEmail}
-                readOnly
-                className="w-full p-2 border rounded border-gray-300 focus:outline-none focus:border-blue-500 bg-gray-100"
-                required
-              />
-            </div>
-          </div>
-
-          <div className="flex flex-wrap">
-            <div className="w-1/2 pr-2 mb-4">
-              <label className="text-gray-600" htmlFor="deadline">
-                Deadline:
-              </label>
-              <input
-                type="date"
-                id="deadline"
-                name="deadline"
-                className="w-full p-2 border rounded border-gray-300 focus:outline-none focus:border-blue-500 bg-gray-100"
-                required
-              />
-            </div>
-            <div className="w-1/2 pr-2 mb-4">
-              <label className="text-gray-600" htmlFor="minPrice">
-                Price:
-              </label>
-              <input
-                type="text"
-                id="minPrice"
-                name="price"
-                className="w-full p-2 border rounded border-gray-300 focus:outline-none focus-border-blue-500 bg-gray-100"
-                required
-              />
-            </div>
-          </div>
-          
-          <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded hover-bg-blue-700 focus:outline-none">
-          Bid Job
-          </button>
-        
-          
-        </form>
+      <div className="mt-6 border px-6 py-9 max-w-4xl bg-white dark:bg-gray-800 rounded-md">
+  <form onSubmit={handleBit}>
+    <div className="flex flex-wrap justify-center items-center">
+      <div className="w-full md:w-1/2 pr-0 md:pr-2 mb-4">
+        <label className="text-gray-600 dark:text-gray-300" htmlFor="employerEmail">
+          Email of the Employer:
+        </label>
+        <input
+          type="email"
+          id="employerEmail"
+          name="employerEmail"
+          placeholder={user?.email}
+          value={user?.email}
+          readOnly
+          className="w-full p-2 border rounded border-gray-300 focus:outline-none focus:border-blue-500 bg-gray-100 dark:bg-gray-700"
+        />
       </div>
+
+      <div className="w-full md:w-1/2 pl-0 md:pl-2 mb-4">
+        <label className="text-gray-600 dark:text-gray-300" htmlFor="jobTitle">
+          Email of the Buyer
+        </label>
+        <input
+          type="text"
+          id="jobTitle"
+          name="buyerEmail"
+          placeholder={job?.buyerEmail}
+          value={job?.buyerEmail}
+          readOnly
+          className="w-full p-2 border rounded border-gray-300 focus:outline-none focus:border-blue-500 bg-gray-100 dark:bg-gray-700"
+          required
+        />
+      </div>
+    </div>
+
+    <div className="flex flex-wrap">
+      <div className="w-full md:w-1/2 pr-0 md:pr-2 mb-4">
+        <label className="text-gray-600 dark:text-gray-300" htmlFor="deadline">
+          Deadline:
+        </label>
+        <input
+          type="date"
+          id="deadline"
+          name="deadline"
+          className="w-full p-2 border rounded border-gray-300 focus:outline-none focus:border-blue-500 bg-gray-100 dark:bg-gray-700"
+          required
+        />
+      </div>
+      <div className="w-full md:w-1/2 pl-0 md:pl-2 mb-4">
+        <label className="text-gray-600 dark:text-gray-300" htmlFor="minPrice">
+          Price:
+        </label>
+        <input
+          type="text"
+          id="minPrice"
+          name="price"
+          className="w-full p-2 border rounded border-gray-300 focus:outline-none focus-border-blue-500 bg-gray-100 dark:bg-gray-700"
+          required
+        />
+      </div>
+    </div>
+    
+    <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-700 focus:outline-none">
+      Bid Job
+    </button>
+  
+  </form>
+</div>
+
+    </div>
     </div>
   );
 };

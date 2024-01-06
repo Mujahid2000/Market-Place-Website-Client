@@ -55,8 +55,8 @@ const AddJobForm = () => {
   };
 
   return (
-    <div className="max-w-full mx-auto dark:bg-gray-900 bg-white p-8 rounded shadow-md mb-5 mt-4">
-      <h1 className="text-2xl font-bold mb-4">Added Job</h1>
+    <div className="max-w-6xl mx-auto dark:bg-gray-900 bg-slate-50 p-8 rounded shadow-md mb-5 mt-4">
+      <h1 className="text-3xl text-center font-mono font-bold mb-4">Added Job</h1>
       <form onSubmit={handlesubmit} ref={formRef}>
         <div className="flex flex-wrap">
           <div className="w-1/2 pr-2 mb-4">
@@ -139,7 +139,7 @@ const AddJobForm = () => {
               Minimum Price:
             </label>
             <input
-              type="text"
+              type="number"
               id="minPrice"
               name="minPrice"
               className="w-full p-2 border rounded border-gray-300 focus:outline-none focus-border-blue-500 bg-gray-100"
@@ -152,7 +152,7 @@ const AddJobForm = () => {
               Maximum Price:
             </label>
             <input
-              type="text"
+              type="number"
               id="maxPrice"
               name="maxPrice"
               className="w-full p-2 border rounded border-gray-300 focus:outline-none focus-border-blue-500 bg-gray-100"
@@ -163,8 +163,7 @@ const AddJobForm = () => {
 
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-700 focus:outline-none"
-        >
+          className="w-full bg-blue-700  p-2 rounded  focus:outline-none inline-block px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-50 ease-in-out  hover:shadow-lg focus:bg-neutral-500 focus:shadow-lg  focus:ring-0 active:bg-neutral-400 active:shadow-lg">
           Add Job
         </button>
       </form>

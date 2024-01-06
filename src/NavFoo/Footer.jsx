@@ -5,19 +5,19 @@ import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from 'react-
 
 const FooTer = () => {
     return (
-        <div className='mt-6 dark:bg-gray-900'>
+        <div className='mt-6 dark:bg-gray-900 '>
             <Footer container>
-      <div className="w-full">
+      <div className="w-full border px-5 py-7 rounded-b-xl rounded-t-sm">
             
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
           <div className='flex'>
-            <p>Taskla</p>
             <Footer.Brand
               href=""
-              src="https://i.ibb.co/6nTm7CG/logo-m.png"
+              src="https://i.ibb.co/Zm4YWYZ/logo-m.png"
               alt="Taskla Logo"
               name="Taskla"
-            />
+              />
+              <p>Taskla</p>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
           
