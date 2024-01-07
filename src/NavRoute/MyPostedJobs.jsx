@@ -71,7 +71,7 @@ const MyPostedJobs = () => {
                 <p className="overflow-auto text-justify">{item.description}</p>
               </div>
               <p>
-                <strong>Price Range:</strong> {item.minPrice} - {item.maxPrice}
+                <strong>Price Range:</strong> ${item.minPrice} - ${item.maxPrice}
               </p>
               <div className="flex text-center mt-4">
                 <Link to={`/update/${item._id}`}>

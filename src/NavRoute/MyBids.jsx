@@ -110,7 +110,7 @@ const MyBids = () => {
                 <td className="border px-4 py-2">{item.buyerEmail}</td>
                 <td className="border px-4 py-2">{item.jobTitle}</td>
                 <td className="border px-4 py-2">{item.deadline}</td>
-                <td className="border px-4 py-2">{item.price}</td>
+                <td className="border px-4 py-2">${item.price}</td>
                 <td className="border px-4 py-2">
                   <div className="grid gap-2">
                     <ProgressBar percent={item.status == "pending" ? 0 : item.status == "in progress" ? 50 : item.status === 'rejected' ? 0 : 100}>

@@ -140,7 +140,7 @@ const Update = () => {
               Minimum Price:
             </label>
             <input
-              type="text"
+              type="number"
               id="minPrice"
               name="minPrice"
               defaultValue={minPrice}
@@ -154,7 +154,7 @@ const Update = () => {
               Maximum Price:
             </label>
             <input
-              type="text"
+              type="number"
               id="maxPrice"
               name="maxPrice"
               defaultValue={maxPrice}
