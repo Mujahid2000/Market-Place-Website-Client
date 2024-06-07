@@ -1,4 +1,4 @@
-"use client";
+
 import { Link } from "react-router-dom";
 
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
